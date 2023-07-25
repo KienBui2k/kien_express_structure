@@ -1,6 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+// connect mySQL
+
+import { mysqlConnect } from './databases/mySQL'
+mysqlConnect()
+
 
 import express from 'express';
 const server = express();
