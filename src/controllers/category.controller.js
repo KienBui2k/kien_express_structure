@@ -3,7 +3,6 @@ import categoryModel from "../modles/category.modle"
 
 module.exports = {
     create: async function (req, res) {
-        console.log("da vao controller modle", req.body);
         try {
             let result = await categoryModel.create(req.body)
             if (result.status) {
