@@ -29,3 +29,17 @@ npm i @babel/cli @babel/core @babel/preset-env @babel/node
     + kích hoạt đầy đủ @babel/cli @babel/core @babel/preset-env @babel/node
 
     + trong lệnh dự án chạy thêm : "pro": "babel-node ./src/server.js"  và   "dev": "nodemon --inspect --exec babel-node src/server.js"
+
+### prisma
+
+npm i prisma
+
+## cd src => cd databases => cd prisma
+npx prisma migrate dev
+đọc file để tạo data trên database, và tạo migration để theo dõi lịch sử khởi tạo
+
+nếu có sự thay đổi trên giao diện thì dùng pull
+npx prisma db pull
+
+còn khi có sự thay đổi vể code thì dùng push để đẩy data lên
+npx prisma db push

@@ -22,7 +22,6 @@ function mysqlConnect() {
         console.log("Lỗi cứ pháp");
     }
 }
-
 module.exports = {
     mysqlConnect,
     mySQL

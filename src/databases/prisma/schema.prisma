@@ -1,0 +1,47 @@
+datasource db {
+    provider = "mysql"
+    url      = "mysql://root:@127.0.0.1:3306/learn_prisma_db"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model categories {
+    id       Int        @id @default(autoincrement())
+    title    String     @unique
+    status   Boolean    @default(false)
+    avatar   String
+    deleted  Boolean    @default(false)
+    pictures products[]
+}
+
+model products {
+    id              Int               @id @default(autoincrement())
+    name            String            @unique(map: "Products_name_key")
+    active          Boolean           @default(false)
+    des             String
+    avatar          String
+    category        categories        @relation(fields: [category_id], references: [id])
+    category_id     Int
+    product_options product_options[]
+}
+
+model product_options {
+    id                      Int                       @id @default(autoincrement())
+    name                    String                    @unique
+    active                  Boolean                   @default(false)
+    price                   Float
+    stock                   Int
+    product_option_pictures product_option_pictures[]
+    product_id              Int
+    product                 products                  @relation(fields: [product_id], references: [id])
+}
+
+model product_option_pictures {
+    id                Int             @id @default(autoincrement())
+    url               String
+    isAvatar          Boolean         @default(false)
+    product_option_id Int
+    product_option    product_options @relation(fields: [product_option_id], references: [id])
+}
