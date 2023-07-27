@@ -60,7 +60,9 @@ module.exports = {
                 data: categoryEdited
             }
         } catch (err) {
+            console.log("day la loi", err);
             return {
+
                 status: false,
                 message: "Lỗi không xác định!"
             }
